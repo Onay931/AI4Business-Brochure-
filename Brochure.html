@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI4Business SOUTH AFRICA Brochure</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+        body {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+            color: white;
+            background: linear-gradient(135deg, #1E3A8A, #000000);
+            overflow-x: hidden;
+            height: 100vh;
+        }
+        .container {
+            width: 100%;
+            max-width: 210mm;
+            margin: 0 auto;
+            position: relative;
+            overflow-y: auto;
+            height: 100%;
+            scroll-behavior: smooth;
+        }
+        .section {
+            padding: 20mm;
+            min-height: 297mm;
+            position: relative;
+            transition: transform 0.3s ease, opacity 0.5s ease;
+            opacity: 0.9;
+        }
+        .section.active {
+            transform: scale(1.01);
+            opacity: 1;
+            box-shadow: 0 0 10mm rgba(0, 0, 0, 0.5);
+        }
+        .cover, .back {
+            text-align: center;
+            padding: 50mm 20mm;
+            background: radial-gradient(circle, #1E3A8A 0%, #000000 100%);
+        }
+        h1 {
+            font-size: 36pt;
+            font-weight: 700;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 1s ease-in;
+        }
+        h2 {
+            font-size: 14pt;
+            font-style: italic;
+            margin: 10pt 0;
+            color: #E0E0E0;
+            text-shadow: 1px 1px 3px rgba(255, 215, 0, 0.3);
+        }
+        p {
+            font-size: 12pt;
+            line-height: 1.6;
+            opacity: 0.9;
+        }
+        .gold {
+            color: #FFD700;
+            font-weight: 700;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        }
+        .red {
+            color: #FF0000;
+            font-weight: 700;
+        }
+        .triangle-divider {
+            width: 0;
+            height: 0;
+            border-left: 15mm solid transparent;
+            border-right: 15mm solid transparent;
+            border-bottom: 30pt solid #FFD700;
+            margin: 20pt 0;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+        .warning-icon {
+            content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23FF0000" width="20" height="20"><path d="M12 2L1.5 21h21L12 2zM13 16h-2v2h2v-2zm0-6h-2v4h2V10z"/></svg>');
+            vertical-align: middle;
+            margin-right: 5pt;
+        }
+        .logo-watermark {
+            position: absolute;
+            bottom: 10mm;
+            right: 10mm;
+            opacity: 0.3;
+            width: 50mm;
+            filter: blur(1px);
+            transition: opacity 0.5s;
+        }
+        .logo-watermark:hover {
+            opacity: 0.5;
+        }
+        .image-container {
+            border: 2px solid #FFD700;
+            border-radius: 5px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin: 10pt;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .image-container:hover {
+            transform: scale(1.05);
+        }
+        .image-placeholder {
+            width: 150px;
+            height: 200px;
+            background: linear-gradient(45deg, #444444, #666666);
+            display: inline-block;
+            vertical-align: middle;
+            animation: pulse 2s infinite;
+        }
+        .chart-placeholder {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(90deg, #555555, #777777);
+            margin: 10pt;
+            border-radius: 10px;
+            animation: rotate 4s infinite linear;
+        }
+        .nav {
+            position: fixed;
+            top: 10mm;
+            left: 10mm;
+            background: rgba(30, 58, 138, 0.8);
+            padding: 10pt;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+        .nav a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 10pt;
+            font-size: 12pt;
+            transition: color 0.3s;
+        }
+        .nav a:hover {
+            color: #FFFFFF;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            background: #1E3A8A;
+            padding: 20pt;
+            border-radius: 10px;
+            max-width: 500px;
+            text-align: left;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.3);
+        }
+        .close {
+            color: #FFD700;
+            float: right;
+            font-size: 20pt;
+            cursor: pointer;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <a href="#welcome">Welcome</a> | 
+        <a href="#mission">Mission</a> | 
+        <a href="#challenge">Challenge</a> | 
+        <a href="#solutions">Solutions</a> | 
+        <a href="#benefits">Benefits</a> | 
+        <a href="#impact">Impact</a> | 
+        <a href="#why-choose">Why Choose Us</a> | 
+        <a href="#inaction">Cost of Inaction</a> | 
+        <a href="#contact">Contact</a>
+    </div>
+    <div class="container">
+        <div class="section cover" id="cover">
+            <img src="ai4business_logo.jpg" alt="AI4Business SOUTH AFRICA Logo" style="width: 150mm; box-shadow: 0 0 15mm rgba(255, 215, 0, 0.2); border-radius: 10px;">
+            <h1>Empowering Your Business with Tailored AI Solutions</h1>
+            <h2>Tailored AI Integration and Support Services for Businesses</h2>
+            <p class="gold">Awarded Best Choice Product of the Year</p>
+            <div class="image-container" onclick="openModal('Award Badge Overlay', 'Details about our prestigious award.')"><div class="image-placeholder" title="Award Badge Overlay"></div></div>
+        </div>
+
+        <div class="section" id="welcome">
+            <h2>Welcome to the AI Revolution</h2>
+            <div class="triangle-divider"></div>
+            <div style="display: flex; align-items: center;">
+                <p>In today’s fast-paced business landscape, staying ahead is not just an advantage—it’s a necessity. Artificial Intelligence (AI) is transforming industries, and at <span class="gold">AI4Business SOUTH AFRICA</span>, we’re here to ensure your business thrives in this digital age. As South Africa’s premier AI solutions provider, we specialize in delivering <span class="gold">tailored AI integration and support services</span> that drive operational efficiency, enhance decision-making, and unlock new opportunities.</p>
+                <div class="image-container" onclick="openModal('Team Collaboration Image', 'A diverse team collaborating on AI projects.')"><div class="image-placeholder" title="Team Collaboration Image (e.g., diverse team meeting)"></div></div>
+            </div>
+            <img src="ai4business_logo.jpg" class="logo-watermark">
+        </div>
+
+        <div class="section" id="mission">
+            <h2>Our Mission</h2>
+            <div class="triangle-divider" style="border-bottom-color: white;"></div>
+            <div style="display: flex; align-items: center;">
+                <div class="image-container" onclick="openModal('AI Technology Image', 'Visualization of advanced AI technology.')"><div class="image-placeholder" title="AI Technology Image (e.g., neural network visualization)"></div></div>
+                <p>Our mission is to <span class="gold">empower businesses</span> through intelligent automation, enhanced decision-making, and seamless AI integration. With expertise in <span class="gold">machine learning, natural language processing (NLP), computer vision, and AI-driven automation</span>, we craft solutions that optimize workflows, boost customer experiences, and deliver measurable ROI.</p>
+            </div>
+        </div>
+
+        <div class="section" id="challenge">
+            <h2>The Challenge You Face</h2>
+            <div class="triangle-divider"></div>
+            <p>Many South African businesses struggle to adopt AI due to:</p>
+            <ul style="list-style: none;">
+                <li><span class="warning-icon"></span><span class="red">High initial implementation costs</span></li>
+                <li><span class="warning-icon"></span><span class="red">Lack of skilled AI professionals</span></li>
+                <li><span class="warning-icon"></span><span class="red">Integration challenges with existing systems</span></li>
+                <li><span class="warning-icon"></span><span class="red">Data privacy and compliance concerns</span></li>
+                <li><span class="warning-icon"></span><span class="red">Resistance to change</span></li>
+            </ul>
+            <p>These barriers lead to missed opportunities, inefficient operations, and a growing competitive gap. Without AI, businesses risk <span class="gold">30% higher customer churn</span>, <span class="gold">25% increased costs</span>, and <span class="gold">60% longer go-to-market times</span>.</p>
+            <div class="image-container" style="position: absolute; bottom: 20mm; right: 20mm;" onclick="openModal('Outdated Office Image', 'An example of outdated business setups.')"><div class="image-placeholder" title="Outdated Office Image (e.g., old technology setup)"></div></div>
+        </div>
+
+        <div class="section" id="solutions">
+            <h2>Our Tailored AI Solutions</h2>
+            <div class="triangle-divider"></div>
+            <p>We simplify AI adoption with <span class="gold">comprehensive, cost-effective solutions</span> and full lifecycle support. Our services include:</p>
+            <ul style="list-style: none;">
+                <li><span class="gold">Strategy & Consulting</span>: Expert guidance to align AI with your goals.</li>
+                <li><span class="gold">System Integration</span>: Seamless compatibility with ERP, CRM, and legacy systems.</li>
+                <li><span class="gold">Workforce Training</span>: Upskill your team for AI success.</li>
+                <li><span class="gold">Maintenance & Optimization</span>: Continuous support for peak performance.</li>
+                <li><span class="gold">Custom AI Tooling</span>: Bespoke models for your unique needs.</li>
+            </ul>
+            <p>Our technical capabilities include:</p>
+            <ul style="list-style: none;">
+                <li>Support for TensorFlow, PyTorch, OpenAI APIs, and custom AI models</li>
+                <li>Cloud-native architecture and microservices</li>
+                <li>Compliance with POPIA and GDPR regulations</li>
+            </ul>
+            <div class="image-container" style="float: right;" onclick="openModal('Cloud Technology Image', 'Illustration of cloud-based AI infrastructure.')"><div class="image-placeholder" title="Cloud Technology Image (e.g., server room or cloud graphic)"></div></div>
+        </div>
+
+        <div class="section" id="benefits">
+            <h2>Benefits of Partnering with Us</h2>
+            <div class="triangle-divider"></div>
+            <p>Unlock the power of AI with:</p>
+            <ul style="list-style: none;">
+                <li style="color: #FFD700;">• <span class="gold">Increased Efficiency</span>: Automate processes and reduce costs.</li>
+                <li style="color: #FFD700;">• <span class="gold">Enhanced Decision-Making</span>: Leverage AI-driven insights.</li>
+                <li style="color: #FFD700;">• <span class="gold">Improved Engagement</span>: Personalize customer experiences.</li>
+                <li style="color: #FFD700;">• <span class="gold">Scalability</span>: Grow with future-proof solutions.</li>
+                <li style="color: #FFD700;">• <span class="gold">Security & Compliance</span>: Meet regulatory standards with confidence.</li>
+            </ul>
+            <p>The AI market in South Africa is booming—<span class="gold">$750M in 2023, projected to reach $3.2B by 2030 (27.23% CAGR)</span>. Don’t miss out.</p>
+            <div class="image-container" style="float: left;" onclick="openModal('Happy Customer Image', 'A satisfied client benefiting from AI.')"><div class="image-placeholder" title="Happy Customer Image (e.g., smiling client)"></div></div>
+            <div class="chart-placeholder" style="float: right;" onclick="openModal('AI Benefits Timeline Chart', 'Graph showing AI benefit progression.')"></div>
+        </div>
+
+        <div class="section" id="impact">
+            <h2>Real-World Impact</h2>
+            <div class="triangle-divider"></div>
+            <p>See how we’ve transformed businesses:</p>
+            <ul style="list-style: none;">
+                <li><span class="gold">Retail</span>: "An AI recommendation engine boosted sales by 20%."</li>
+                <li><span class="gold">Manufacturing</span>: "Predictive maintenance cut downtime by 30%."</li>
+                <li><span class="gold">Healthcare</span>: "AI diagnostics improved patient outcomes by 15%."</li>
+                <li><span class="gold">Logistics</span>: "Route optimization reduced delivery costs by 25%."</li>
+            </ul>
+            <p>These are just a few examples of how our tailored solutions deliver results.</p>
+            <div style="text-align: center; margin-top: 20pt;"><div class="image-container" onclick="openModal('Industry Icons Collage', 'Icons representing various industries.')"><div class="image-placeholder" title="Industry Icons Collage (e.g., retail cart, healthcare cross)"></div></div></div>
+        </div>
+
+        <div class="section" id="why-choose">
+            <h2>Why Choose AI4Business SOUTH AFRICA?</h2>
+            <div class="triangle-divider"></div>
+            <p>We stand out because we offer:</p>
+            <ul style="list-style: none;">
+                <li><span class="gold">Tailored Solutions</span>: Customized AI for your specific needs.</li>
+                <li><span class="gold">Full Lifecycle Support</span>: From strategy to ongoing optimization.</li>
+                <li><span class="gold">Proven Excellence</span>: Awarded "Best Choice Product of the Year."</li>
+                <li><span class="gold">Local Expertise</span>: Deep understanding of the South African market.</li>
+                <li><span class="gold">Compliance & Ethics</span>: Adherence to regulations and fair AI practices.</li>
+            </ul>
+            <p>Join the ranks of agile, data-rich businesses—don’t become rigid, outdated, or inefficient.</p>
+            <div class="image-container" style="float: left;" onclick="openModal('Award Ceremony Image', 'Celebrating our industry recognition.')"><div class="image-placeholder" title="Award Ceremony Image (e.g., trophy or ceremony)"></div></div>
+        </div>
+
+        <div class="section" id="inaction">
+            <h2>The Cost of Inaction</h2>
+            <div class="triangle-divider"></div>
+            <p>Failing to adopt AI puts your business at risk:</p>
+            <ul style="list-style: none;">
+                <li><span class="warning-icon"></span><span class="red">30% Higher Customer Churn</span></li>
+                <li><span class="warning-icon"></span><span class="red">25% Increase in Operational Costs</span></li>
+                <li><span class="warning-icon"></span><span class="red">60% Longer Go-to-Market Time</span></li>
+                <li><span class="warning-icon"></span><span class="red">Stagnation or Collapse</span></li>
+            </ul>
+            <p>The difference is existential. Act now to stay competitive. As of <span class="gold">10:11 AM SAST, Wednesday, May 14, 2025</span>, the time to act is now!</p>
+            <div class="image-container" style="position: absolute; top: 20mm; right: 20mm;" onclick="openModal('Declining Graph Image', 'Graph showing business decline without AI.')"><div class="image-placeholder" title="Declining Graph Image (e.g., downward trend)"></div></div>
+            <div class="chart-placeholder" style="position: absolute; bottom: 20mm; left: 50%; transform: translateX(-50%);" onclick="openModal('Risk Statistics Chart', 'Bar graph of inaction risks.')"></div>
+        </div>
+
+        <div class="section back" id="contact">
+            <div class="triangle-divider" style="border-bottom-color: white; margin: 50pt 0;"></div>
+            <h1>Don’t let your business fall behind. Partner with <span class="gold">AI4Business SOUTH AFRICA</span> to harness the power of AI.</h1>
+            <p>Visit <span class="gold">www.ai4business.co.za</span> or call us at <span class="gold">[insert phone number]</span> to start your transformation today.</p>
+            <p class="gold" style="font-style: italic;">The future of business is here—are you ready?</p>
+            <img src="ai4business_logo.jpg" alt="AI4Business SOUTH AFRICA Logo" style="width: 100mm; margin-top: 20pt; box-shadow: 0 0 10mm rgba(255, 215, 0, 0.2); border-radius: 5px;">
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">×</span>
+            <h2 id="modal-title"></h2>
+            <p id="modal-text"></p>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll('.nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                document.querySelector(`#${targetId}`).scrollIntoView({ behavior: 'smooth' });
+                document.querySelectorAll('.section').forEach(section => section.classList.remove('active'));
+                document.querySelector(`#${targetId}`).classList.add('active');
+            });
+        });
+
+        document.querySelectorAll('.image-container').forEach(container => {
+            container.addEventListener('click', function() {
+                const title = this.querySelector('.image-placeholder').getAttribute('title');
+                const text = this.getAttribute('data-modal-text') || 'More details coming soon.';
+                openModal(title, text);
+            });
+        });
+
+        function openModal(title, text) {
+            const modal = document.getElementById('modal');
+            const modalTitle = document.getElementById('modal-title');
+            const modalText = document.getElementById('modal-text');
+            modalTitle.textContent = title;
+            modalText.textContent = text;
+            modal.style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').style.display = 'none';
+        }
+
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top >= 0 && rect.top < window.innerHeight / 2) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
