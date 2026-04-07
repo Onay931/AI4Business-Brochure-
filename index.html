@@ -14,6 +14,7 @@
     content="AI South Africa, AI for SMEs, business AI, LLM systems, AI automation, on-premise AI, AI consulting South Africa, AI4Business SOUTH AFRICA"
   />
   <meta name="author" content="AI4Business SOUTH AFRICA" />
+  <meta name="theme-color" content="#07111f" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="AI4Business SOUTH AFRICA" />
@@ -31,530 +32,18 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
     rel="stylesheet"
   />
 
-  <style>
-    :root {
-      --bg: #07111f;
-      --bg-alt: #0d1b2a;
-      --card: rgba(255, 255, 255, 0.06);
-      --card-border: rgba(255, 255, 255, 0.12);
-      --text: #f8fafc;
-      --muted: #cbd5e1;
-      --gold: #d4af37;
-      --gold-soft: #f2d675;
-      --blue: #1d4ed8;
-      --blue-soft: #60a5fa;
-      --success: #22c55e;
-      --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
-      --radius: 20px;
-      --max: 1200px;
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Inter", sans-serif;
-      background:
-        radial-gradient(circle at 10% 10%, rgba(29, 78, 216, 0.18), transparent 30%),
-        radial-gradient(circle at 85% 15%, rgba(212, 175, 55, 0.14), transparent 25%),
-        linear-gradient(180deg, #04101d 0%, #07111f 50%, #0b1626 100%);
-      color: var(--text);
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    img {
-      max-width: 100%;
-      display: block;
-    }
-
-    .container {
-      width: min(100% - 2rem, var(--max));
-      margin: 0 auto;
-    }
-
-    .section {
-      padding: 5rem 0;
-    }
-
-    .section-title {
-      font-size: clamp(1.9rem, 4vw, 3rem);
-      font-weight: 800;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-
-    .section-subtitle {
-      color: var(--muted);
-      max-width: 760px;
-      font-size: 1.05rem;
-    }
-
-    .eyebrow {
-      display: inline-block;
-      font-size: 0.8rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      font-weight: 700;
-      color: var(--gold-soft);
-      margin-bottom: 0.85rem;
-    }
-
-    /* Header */
-    .header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      backdrop-filter: blur(12px);
-      background: rgba(7, 17, 31, 0.72);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      min-height: 78px;
-      gap: 1rem;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 0.9rem;
-      font-weight: 800;
-      letter-spacing: -0.02em;
-    }
-
-    .brand-logo {
-      width: 42px;
-      height: 42px;
-      border-radius: 12px;
-      object-fit: cover;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-      line-height: 1.1;
-    }
-
-    .brand-text span:first-child {
-      font-size: 0.95rem;
-    }
-
-    .brand-text span:last-child {
-      font-size: 0.72rem;
-      color: var(--gold-soft);
-      font-weight: 600;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 1.2rem;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      color: var(--muted);
-      font-size: 0.95rem;
-      font-weight: 500;
-      transition: 0.2s ease;
-    }
-
-    .nav-links a:hover {
-      color: #fff;
-    }
-
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.55rem;
-      border: none;
-      border-radius: 999px;
-      padding: 0.9rem 1.35rem;
-      font-weight: 700;
-      font-size: 0.95rem;
-      cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--gold), #b88c16);
-      color: #07111f;
-      box-shadow: 0 12px 30px rgba(212, 175, 55, 0.25);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,0.06);
-      color: #fff;
-      border: 1px solid rgba(255,255,255,0.12);
-    }
-
-    /* Hero */
-    .hero {
-      padding: 5.5rem 0 4rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 2rem;
-      align-items: center;
-    }
-
-    .hero h1 {
-      font-size: clamp(2.4rem, 6vw, 5rem);
-      line-height: 1.02;
-      font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: 1.25rem;
-    }
-
-    .hero h1 .gold {
-      color: var(--gold-soft);
-    }
-
-    .hero p {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 700px;
-      margin-bottom: 1.6rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 0.9rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.8rem;
-    }
-
-    .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .stat {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: var(--radius);
-      padding: 1rem;
-      box-shadow: var(--shadow);
-    }
-
-    .stat h3 {
-      font-size: 1.4rem;
-      color: #fff;
-      margin-bottom: 0.2rem;
-    }
-
-    .stat p {
-      font-size: 0.9rem;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .hero-card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.03));
-      border: 1px solid var(--card-border);
-      border-radius: 28px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -30% auto auto -10%;
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(212, 175, 55, 0.18), transparent 70%);
-      pointer-events: none;
-    }
-
-    .hero-panel {
-      display: grid;
-      gap: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .mini-card {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 18px;
-      padding: 1rem;
-    }
-
-    .mini-card h4 {
-      font-size: 1rem;
-      margin-bottom: 0.35rem;
-    }
-
-    .mini-card p {
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin: 0;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      padding: 0.45rem 0.75rem;
-      border-radius: 999px;
-      background: rgba(34, 197, 94, 0.12);
-      border: 1px solid rgba(34, 197, 94, 0.22);
-      color: #bbf7d0;
-      font-size: 0.8rem;
-      font-weight: 700;
-      width: fit-content;
-    }
-
-    /* Grids */
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 24px;
-      padding: 1.5rem;
-      box-shadow: var(--shadow);
-    }
-
-    .card h3 {
-      font-size: 1.15rem;
-      margin-bottom: 0.7rem;
-    }
-
-    .card p {
-      color: var(--muted);
-      font-size: 0.96rem;
-    }
-
-    .card ul {
-      list-style: none;
-      display: grid;
-      gap: 0.7rem;
-      margin-top: 1rem;
-    }
-
-    .card li {
-      color: var(--muted);
-      font-size: 0.95rem;
-      position: relative;
-      padding-left: 1.1rem;
-    }
-
-    .card li::before {
-      content: "•";
-      color: var(--gold);
-      position: absolute;
-      left: 0;
-    }
-
-    /* Process */
-    .timeline {
-      display: grid;
-      gap: 1rem;
-      margin-top: 2rem;
-    }
-
-    .step {
-      display: grid;
-      grid-template-columns: 72px 1fr;
-      gap: 1rem;
-      align-items: start;
-      background: var(--card);
-      border: 1px solid var(--card-border);
-      border-radius: 22px;
-      padding: 1.25rem;
-      box-shadow: var(--shadow);
-    }
-
-    .step-number {
-      width: 52px;
-      height: 52px;
-      border-radius: 16px;
-      display: grid;
-      place-items: center;
-      background: linear-gradient(135deg, var(--gold), #9a7615);
-      color: #07111f;
-      font-weight: 800;
-      font-size: 1rem;
-    }
-
-    .step h4 {
-      margin-bottom: 0.4rem;
-      font-size: 1.05rem;
-    }
-
-    .step p {
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    /* Highlight */
-    .highlight {
-      margin-top: 2rem;
-      padding: 2rem;
-      border-radius: 28px;
-      background:
-        linear-gradient(135deg, rgba(29, 78, 216, 0.12), rgba(212, 175, 55, 0.08)),
-        rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.1);
-      box-shadow: var(--shadow);
-    }
-
-    .highlight-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-
-    .highlight-box {
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 18px;
-      padding: 1rem;
-    }
-
-    .highlight-box strong {
-      display: block;
-      font-size: 1.2rem;
-      margin-bottom: 0.25rem;
-      color: var(--gold-soft);
-    }
-
-    .highlight-box span {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    /* CTA */
-    .cta {
-      margin-top: 2rem;
-      padding: 2rem;
-      border-radius: 28px;
-      background: linear-gradient(135deg, rgba(212,175,55,0.16), rgba(29,78,216,0.16));
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: var(--shadow);
-    }
-
-    .cta h3 {
-      font-size: clamp(1.5rem, 4vw, 2.4rem);
-      margin-bottom: 0.75rem;
-    }
-
-    .cta p {
-      color: var(--muted);
-      max-width: 760px;
-      margin-bottom: 1.25rem;
-    }
-
-    /* Footer */
-    .footer {
-      padding: 2rem 0 3rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      margin-top: 3rem;
-    }
-
-    .footer-grid {
-      display: flex;
-      justify-content: space-between;
-      gap: 1rem;
-      flex-wrap: wrap;
-      align-items: center;
-    }
-
-    .footer p,
-    .footer a {
-      color: var(--muted);
-      font-size: 0.92rem;
-    }
-
-    /* Responsive */
-    @media (max-width: 1024px) {
-      .hero-grid,
-      .grid-3,
-      .grid-2,
-      .highlight-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-
-      .nav-links {
-        display: none;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .hero {
-        padding-top: 4rem;
-      }
-
-      .section {
-        padding: 4rem 0;
-      }
-
-      .step {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+  <!-- Styles -->
+  <link rel="stylesheet" href="./style.css" />
 </head>
 <body>
-
   <!-- Header -->
   <header class="header">
     <div class="container nav">
-      <a href="#top" class="brand">
+      <a href="#top" class="brand" aria-label="AI4Business SOUTH AFRICA home">
         <img src="./assets/logo.png" alt="AI4Business SOUTH AFRICA Logo" class="brand-logo" />
         <div class="brand-text">
           <span>AI4Business</span>
@@ -562,29 +51,57 @@
         </div>
       </a>
 
-      <nav class="nav-links">
+      <nav class="nav-links" aria-label="Primary navigation">
         <a href="#solutions">Solutions</a>
         <a href="#process">Process</a>
         <a href="#advantages">Advantages</a>
         <a href="#contact">Contact</a>
-        <a href="https://www.ai4business.co.za" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Website</a>
+        <a
+          href="https://www.ai4business.co.za"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn-secondary btn-nav"
+        >
+          Website
+        </a>
       </nav>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+
+    <div class="mobile-menu" id="mobileMenu">
+      <a href="#solutions">Solutions</a>
+      <a href="#process">Process</a>
+      <a href="#advantages">Advantages</a>
+      <a href="#contact">Contact</a>
+      <a
+        href="https://www.ai4business.co.za"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-secondary mobile-menu-btn"
+      >
+        Visit Website
+      </a>
     </div>
   </header>
 
   <!-- Hero -->
   <section class="hero" id="top">
     <div class="container hero-grid">
-      <div>
+      <div class="hero-content reveal">
         <span class="eyebrow">Turnkey AI Transformation for South African SMEs</span>
         <h1>
           Deploy <span class="gold">real AI systems</span><br />
           inside your business — not just generic tools.
         </h1>
-        <p>
-          AI4Business SOUTH AFRICA provides end-to-end AI transformation for South African SMEs:
+        <p class="hero-copy">
+          AI4Business SOUTH AFRICA provides end-to-end AI transformation:
           strategy, bespoke AI software, LLM systems, local deployment, on-premise AI hardware,
-          analytics, optimization, and continuous support.
+          analytics, optimization, and continuous support — engineered for South African SMEs.
         </p>
 
         <div class="hero-actions">
@@ -593,66 +110,100 @@
         </div>
 
         <div class="hero-stats">
-          <div class="stat">
-            <h3>End-to-End</h3>
-            <p>Strategy, build, integration, deployment, support</p>
+          <div class="stat-card">
+            <div class="stat-number">End-to-End</div>
+            <div class="stat-label">Strategy, build, integration, deployment, support</div>
           </div>
-          <div class="stat">
-            <h3>Hybrid AI</h3>
-            <p>Cloud + local AI models with data sovereignty</p>
+          <div class="stat-card">
+            <div class="stat-number">Hybrid AI</div>
+            <div class="stat-label">Cloud + local AI models with data sovereignty</div>
           </div>
-          <div class="stat">
-            <h3>SME Focused</h3>
-            <p>Built specifically for the South African market</p>
+          <div class="stat-card">
+            <div class="stat-number">SME Focused</div>
+            <div class="stat-label">Built specifically for the South African market</div>
           </div>
         </div>
       </div>
 
-      <div class="hero-card">
-        <div class="hero-panel">
-          <span class="pill">● AI Infrastructure Ready</span>
+      <div class="hero-panel reveal delay-1">
+        <div class="hero-panel-glow"></div>
 
-          <div class="mini-card">
-            <h4>Bespoke AI Software</h4>
+        <div class="panel-badge">AI Infrastructure Ready</div>
+
+        <div class="panel-card">
+          <div class="panel-icon">AI</div>
+          <div>
+            <h3>Bespoke AI Software</h3>
             <p>Custom AI applications, copilots, automations, and internal intelligence systems built around your workflows.</p>
           </div>
+        </div>
 
-          <div class="mini-card">
-            <h4>Dedicated On-Premise AI Hardware</h4>
-            <p>Mini-PC-style or edge AI hardware owned by the client for performance, privacy, and long-term cost efficiency.</p>
+        <div class="panel-card">
+          <div class="panel-icon">HW</div>
+          <div>
+            <h3>Dedicated On-Premise AI Hardware</h3>
+            <p>Mini-PC-style or edge AI infrastructure owned by the client for privacy, control, and long-term cost efficiency.</p>
           </div>
+        </div>
 
-          <div class="mini-card">
-            <h4>Full Lifecycle Management</h4>
-            <p>We handle architecture, deployment, analytics, iteration, support, and continuous upgrades so your AI keeps improving.</p>
+        <div class="panel-card">
+          <div class="panel-icon">OPS</div>
+          <div>
+            <h3>Full Lifecycle Management</h3>
+            <p>Architecture, deployment, analytics, iteration, support, and continuous upgrades to keep your AI stack improving.</p>
+          </div>
+        </div>
+
+        <div class="signal-grid">
+          <div class="signal-card">
+            <strong>Data Sovereignty</strong>
+            <span>Local AI deployment options for sensitive business intelligence.</span>
+          </div>
+          <div class="signal-card">
+            <strong>Client-Owned Infrastructure</strong>
+            <span>Reduced dependency on cloud-only enterprise providers.</span>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Trust Strip -->
+  <section class="trust-strip">
+    <div class="container trust-grid">
+      <div class="trust-item">Private AI Assistants</div>
+      <div class="trust-item">LLM Workflow Automation</div>
+      <div class="trust-item">On-Premise AI Hardware</div>
+      <div class="trust-item">SME Transformation Systems</div>
+    </div>
+  </section>
+
   <!-- Solutions -->
   <section class="section" id="solutions">
     <div class="container">
-      <span class="eyebrow">Core Offerings</span>
-      <h2 class="section-title">What AI4Business SOUTH AFRICA delivers</h2>
-      <p class="section-subtitle">
-        A complete AI transformation stack designed to move South African SMEs from fragmented tooling
-        to integrated, operational AI systems that create measurable business leverage.
-      </p>
+      <div class="section-head reveal">
+        <span class="eyebrow">Core Offerings</span>
+        <h2 class="section-title">What AI4Business SOUTH AFRICA delivers</h2>
+        <p class="section-subtitle">
+          A complete AI transformation stack designed to move South African SMEs from fragmented tools
+          to integrated, operational AI systems that create measurable business leverage.
+        </p>
+      </div>
 
-      <div class="grid-3">
-        <div class="card">
+      <div class="card-grid card-grid-3">
+        <article class="feature-card reveal">
+          <div class="feature-tag">01</div>
           <h3>AI Strategy & Transformation</h3>
-          <p>Identify the highest ROI use cases, prioritize operational bottlenecks, and define a practical roadmap to implementation.</p>
+          <p>Identify high-ROI use cases, prioritize operational bottlenecks, and define a practical roadmap to implementation.</p>
           <ul>
             <li>AI opportunity mapping</li>
             <li>Business process analysis</li>
             <li>ROI-focused transformation roadmap</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="feature-card reveal delay-1">
+          <div class="feature-tag">02</div>
           <h3>Bespoke AI Software & LLM Systems</h3>
           <p>Custom AI copilots, internal knowledge assistants, workflow automations, and domain-specific intelligence tools.</p>
           <ul>
@@ -660,77 +211,85 @@
             <li>Document intelligence & search</li>
             <li>LLM workflow automation</li>
           </ul>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="feature-card reveal delay-2">
+          <div class="feature-tag">03</div>
           <h3>On-Premise AI Hardware Deployment</h3>
-          <p>Dedicated local AI hardware infrastructure for privacy, performance, and reduced dependency on external cloud-only providers.</p>
+          <p>Dedicated local AI hardware infrastructure for privacy, performance, and reduced dependence on external cloud-only providers.</p>
           <ul>
             <li>Client-owned AI hardware</li>
             <li>Hybrid local/cloud model</li>
             <li>Data sovereignty advantage</li>
           </ul>
-        </div>
+        </article>
       </div>
 
-      <div class="grid-3">
-        <div class="card">
+      <div class="card-grid card-grid-3 mt-lg">
+        <article class="feature-card reveal">
+          <div class="feature-tag">04</div>
           <h3>Systems Integration</h3>
-          <p>Connect AI into your existing stack: CRM, ERP, documents, forms, websites, communications, and internal operations.</p>
-        </div>
+          <p>Connect AI into your CRM, ERP, websites, documents, forms, internal workflows, and communications stack.</p>
+        </article>
 
-        <div class="card">
+        <article class="feature-card reveal delay-1">
+          <div class="feature-tag">05</div>
           <h3>Analytics & Optimization</h3>
           <p>Track usage, performance, business impact, and continuously refine the system based on operational outcomes.</p>
-        </div>
+        </article>
 
-        <div class="card">
+        <article class="feature-card reveal delay-2">
+          <div class="feature-tag">06</div>
           <h3>Managed Support & Upgrades</h3>
           <p>Ongoing maintenance, model improvements, prompt/system tuning, and strategic iteration as your business evolves.</p>
-        </div>
+        </article>
       </div>
     </div>
   </section>
 
   <!-- Process -->
-  <section class="section" id="process">
+  <section class="section section-alt" id="process">
     <div class="container">
-      <span class="eyebrow">Implementation Model</span>
-      <h2 class="section-title">A practical deployment process built for real businesses</h2>
-      <p class="section-subtitle">
-        AI transformation should be systematic, commercially grounded, and operationally integrated —
-        not a loose collection of disconnected AI subscriptions.
-      </p>
+      <div class="section-head reveal">
+        <span class="eyebrow">Implementation Model</span>
+        <h2 class="section-title">A practical deployment process built for real businesses</h2>
+        <p class="section-subtitle">
+          AI transformation should be systematic, commercially grounded, and operationally integrated —
+          not a loose collection of disconnected AI subscriptions.
+        </p>
+      </div>
 
       <div class="timeline">
-        <div class="step">
-          <div class="step-number">01</div>
-          <div>
-            <h4>Discovery & Opportunity Mapping</h4>
+        <div class="timeline-line"></div>
+
+        <div class="timeline-item reveal">
+          <div class="timeline-step">01</div>
+          <div class="timeline-card">
+            <h3>Discovery & Opportunity Mapping</h3>
             <p>We assess workflows, bottlenecks, knowledge assets, and commercial priorities to identify the most valuable AI opportunities first.</p>
           </div>
         </div>
 
-        <div class="step">
-          <div class="step-number">02</div>
-          <div>
-            <h4>Solution Architecture & Roadmap</h4>
+        <div class="timeline-item reveal delay-1">
+          <div class="timeline-step">02</div>
+          <div class="timeline-card">
+            <h3>Solution Architecture & Roadmap</h3>
             <p>We design the AI system architecture: software, models, integrations, infrastructure, and rollout sequencing.</p>
           </div>
         </div>
 
-        <div class="step">
-          <div class="step-number">03</div>
-          <div>
-            <h4>Build, Integrate & Deploy</h4>
+        <div class="timeline-item reveal delay-2">
+          <div class="timeline-step">03</div>
+          <div class="timeline-card">
+            <h3>Build, Integrate & Deploy</h3>
             <p>We develop bespoke systems, connect them to your operational environment, and deploy them with business continuity in mind.</p>
           </div>
         </div>
 
-        <div class="step">
-          <div class="step-number">04</div>
-          <div>
-            <h4>Measure, Refine & Scale</h4>
+        <div class="timeline-item reveal">
+          <div class="timeline-step">04</div>
+          <div class="timeline-card">
+            <h3>Measure, Refine & Scale</h3>
             <p>We monitor adoption and impact, optimize performance, and expand into adjacent use cases as ROI is proven.</p>
           </div>
         </div>
@@ -741,47 +300,49 @@
   <!-- Advantages -->
   <section class="section" id="advantages">
     <div class="container">
-      <span class="eyebrow">Competitive Differentiation</span>
-      <h2 class="section-title">Why this model is different</h2>
-      <p class="section-subtitle">
-        Most providers offer generic SaaS subscriptions. AI4Business SOUTH AFRICA delivers a hybrid,
-        client-integrated model designed for control, performance, and long-term strategic advantage.
-      </p>
+      <div class="section-head reveal">
+        <span class="eyebrow">Competitive Differentiation</span>
+        <h2 class="section-title">Why this model is different</h2>
+        <p class="section-subtitle">
+          Most providers offer generic SaaS subscriptions. AI4Business SOUTH AFRICA delivers a hybrid,
+          client-integrated model designed for control, performance, and long-term strategic advantage.
+        </p>
+      </div>
 
-      <div class="highlight">
-        <div class="highlight-grid">
-          <div class="highlight-box">
-            <strong>Data Sovereignty</strong>
-            <span>Keep sensitive business intelligence closer to home with local AI deployment options.</span>
-          </div>
-          <div class="highlight-box">
-            <strong>Client-Owned Hardware</strong>
-            <span>Dedicated on-premise infrastructure reduces dependency and improves control.</span>
-          </div>
-          <div class="highlight-box">
-            <strong>Bespoke Systems</strong>
-            <span>Solutions are designed around your workflows — not forced into generic templates.</span>
-          </div>
-          <div class="highlight-box">
-            <strong>Continuous Upgrades</strong>
-            <span>Your AI stack evolves with your operations, data, and market realities.</span>
-          </div>
+      <div class="advantage-grid">
+        <div class="advantage-card reveal">
+          <h3>Data Sovereignty</h3>
+          <p>Keep sensitive business intelligence closer to home with local AI deployment options.</p>
+        </div>
+        <div class="advantage-card reveal delay-1">
+          <h3>Client-Owned Hardware</h3>
+          <p>Dedicated on-premise infrastructure reduces dependency and improves control.</p>
+        </div>
+        <div class="advantage-card reveal delay-2">
+          <h3>Bespoke Systems</h3>
+          <p>Solutions are designed around your workflows — not forced into generic templates.</p>
+        </div>
+        <div class="advantage-card reveal">
+          <h3>Continuous Upgrades</h3>
+          <p>Your AI stack evolves with your operations, data, and market realities.</p>
         </div>
       </div>
 
-      <div class="grid-2">
-        <div class="card">
-          <h3>Ideal for South African SMEs</h3>
+      <div class="split-grid mt-lg">
+        <div class="insight-card reveal">
+          <span class="insight-label">Ideal Fit</span>
+          <h3>Built for South African SMEs</h3>
           <p>
-            Businesses that want meaningful AI leverage without being trapped in enterprise-scale pricing,
+            Businesses that want meaningful AI leverage without enterprise-scale pricing,
             fragmented tools, or fully externalized cloud dependency.
           </p>
         </div>
 
-        <div class="card">
+        <div class="insight-card reveal delay-1">
+          <span class="insight-label">Commercial Objective</span>
           <h3>Built for Operational ROI</h3>
           <p>
-            The objective is not “AI adoption” as a buzzword. The objective is measurable gains in efficiency,
+            The goal is not “AI adoption” as a buzzword. The goal is measurable gains in efficiency,
             insight, automation, quality, and commercial execution.
           </p>
         </div>
@@ -789,19 +350,73 @@
     </div>
   </section>
 
+  <!-- Use Cases -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Use Cases</span>
+        <h2 class="section-title">High-impact AI deployment starting points</h2>
+        <p class="section-subtitle">
+          Recommended engagement models that can deliver immediate strategic and operational leverage.
+        </p>
+      </div>
+
+      <div class="card-grid card-grid-2">
+        <article class="use-case-card reveal">
+          <h3>Private Internal AI Copilot</h3>
+          <p>Secure business knowledge assistant trained on internal documents, SOPs, product information, and operational data.</p>
+        </article>
+
+        <article class="use-case-card reveal delay-1">
+          <h3>Document & Knowledge Intelligence</h3>
+          <p>Search, summarize, extract, compare, and operationalize contracts, policies, proposals, and business documentation.</p>
+        </article>
+
+        <article class="use-case-card reveal">
+          <h3>Workflow Automation Systems</h3>
+          <p>AI-enhanced workflows for customer service, lead qualification, operations, reporting, and internal execution.</p>
+        </article>
+
+        <article class="use-case-card reveal delay-1">
+          <h3>On-Premise AI Hardware Stack</h3>
+          <p>Dedicated local inference infrastructure for privacy-sensitive or cost-optimized AI workloads.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="section">
     <div class="container">
-      <div class="cta">
-        <span class="eyebrow">Next Step</span>
-        <h3>Move from AI curiosity to AI infrastructure.</h3>
-        <p>
-          If you want a serious AI system built into your business — with strategic alignment, bespoke software,
-          dedicated infrastructure, and full implementation support — AI4Business SOUTH AFRICA is designed for that exact mandate.
-        </p>
-        <div class="hero-actions">
-          <a href="#contact" class="btn btn-primary">Request a Consultation</a>
-          <a href="https://www.ai4business.co.za" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">Visit Website</a>
+      <div class="cta reveal">
+        <div class="cta-content">
+          <span class="eyebrow">Next Step</span>
+          <h2>Move from AI curiosity to AI infrastructure.</h2>
+          <p>
+            If you want a serious AI system built into your business — with strategic alignment, bespoke software,
+            dedicated infrastructure, and full implementation support — AI4Business SOUTH AFRICA is built for that mandate.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contact" class="btn btn-primary">Request a Consultation</a>
+            <a
+              href="https://www.ai4business.co.za"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+            >
+              Visit Website
+            </a>
+          </div>
+        </div>
+
+        <div class="cta-panel">
+          <div class="cta-chip">Strategy</div>
+          <div class="cta-chip">Software</div>
+          <div class="cta-chip">LLM Systems</div>
+          <div class="cta-chip">On-Prem Hardware</div>
+          <div class="cta-chip">Integration</div>
+          <div class="cta-chip">Optimization</div>
         </div>
       </div>
     </div>
@@ -810,26 +425,43 @@
   <!-- Contact -->
   <section class="section" id="contact">
     <div class="container">
-      <span class="eyebrow">Contact</span>
-      <h2 class="section-title">Start the conversation</h2>
-      <p class="section-subtitle">
-        Ready to explore a tailored AI transformation strategy for your business?
-      </p>
+      <div class="section-head reveal">
+        <span class="eyebrow">Contact</span>
+        <h2 class="section-title">Start the conversation</h2>
+        <p class="section-subtitle">
+          Ready to explore a tailored AI transformation strategy for your business?
+        </p>
+      </div>
 
-      <div class="grid-2">
-        <div class="card">
+      <div class="contact-grid">
+        <div class="contact-card reveal">
           <h3>Get in touch</h3>
-          <ul>
-            <li>Email: applesoftwareengineering@proton.me</li>
-            <li>Website: www.ai4business.co.za</li>
-            <li>Location: South Africa</li>
-            <li>Service model: End-to-end AI transformation for SMEs</li>
-          </ul>
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="contact-label">Email</span>
+              <a href="mailto:applesoftwareengineering@proton.me">applesoftwareengineering@proton.me</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">Website</span>
+              <a href="https://www.ai4business.co.za" target="_blank" rel="noopener noreferrer">www.ai4business.co.za</a>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">Location</span>
+              <span>South Africa</span>
+            </div>
+
+            <div class="contact-item">
+              <span class="contact-label">Service Model</span>
+              <span>End-to-end AI transformation for SMEs</span>
+            </div>
+          </div>
         </div>
 
-        <div class="card">
-          <h3>Recommended engagement starting points</h3>
-          <ul>
+        <div class="contact-card reveal delay-1">
+          <h3>Recommended starting engagements</h3>
+          <ul class="contact-bullets">
             <li>AI opportunity assessment</li>
             <li>Private internal AI copilot</li>
             <li>Document / knowledge intelligence system</li>
@@ -843,8 +475,11 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container footer-grid">
-      <p>© <span id="year"></span> AI4Business SOUTH AFRICA. All rights reserved.</p>
-      <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+      <div>
+        <p>© <span id="year"></span> AI4Business SOUTH AFRICA. All rights reserved.</p>
+      </div>
+
+      <div class="footer-links">
         <a href="#solutions">Solutions</a>
         <a href="#process">Process</a>
         <a href="#advantages">Advantages</a>
@@ -853,8 +488,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <script src="./script.js"></script>
 </body>
 </html>
