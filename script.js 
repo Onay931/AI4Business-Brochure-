@@ -1,0 +1,88 @@
+// Dynamic year
+const yearEl = document.getElementById("year");
+if (yearEl) {
+  yearEl.textContent = new Date().getFullYear();
+}
+
+// Mobile menu toggle
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+if (menuToggle && mobileMenu) {
+  menuToggle.addEventListener("click", () => {
+    const isOpen = mobileMenu.classList.toggle("open");
+    menuToggle.classList.toggle("active", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  });
+
+  // Close menu when clicking a mobile nav link
+  mobileMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.remove("open");
+      menuToggle.classList.remove("active");
+      menuToggle.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+// Smooth-ish nav offset handling for sticky header
+document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+  anchor.addEventListener("click", function (e) {
+    const targetId = this.getAttribute("href");
+    if (!targetId || targetId === "#") return;
+
+    const targetEl = document.querySelector(targetId);
+    if (!targetEl) return;
+
+    e.preventDefault();
+
+    const header = document.querySelector(".header");
+    const headerOffset = header ? header.offsetHeight : 80;
+    const elementPosition = targetEl.getBoundingClientRect().top + window.pageYOffset;
+    const offsetPosition = elementPosition - headerOffset + 8;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth"
+    });
+  });
+});
+
+// Scroll reveal
+const revealEls = document.querySelectorAll(".reveal");
+
+if ("IntersectionObserver" in window && revealEls.length) {
+  const observer = new IntersectionObserver(
+    (entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          obs.unobserve(entry.target);
+        }
+      });
+    },
+    {
+      threshold: 0.14
+    }
+  );
+
+  revealEls.forEach((el) => observer.observe(el));
+} else {
+  // Fallback
+  revealEls.forEach((el) => el.classList.add("visible"));
+}
+
+// Optional: subtle header shadow enhancement on scroll
+const header = document.querySelector(".header");
+if (header) {
+  const handleHeaderScroll = () => {
+    if (window.scrollY > 12) {
+      header.style.boxShadow = "0 10px 30px rgba(0,0,0,0.18)";
+    } else {
+      header.style.boxShadow = "none";
+    }
+  };
+
+  handleHeaderScroll();
+  window.addEventListener("scroll", handleHeaderScroll, { passive: true });
+}
